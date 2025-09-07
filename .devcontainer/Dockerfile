@@ -26,6 +26,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 # Set working directory
 WORKDIR /workspace
 
+# Pre-install common Node.js packages for Vue 3 development
+# This will speed up development by having these packages available in the container
+RUN npm install -g @vitejs/create-vue
+
 # Set default command
 # Note: docker-compose service command in compose.yml overrides this CMD
 CMD [ "/bin/zsh" ]
