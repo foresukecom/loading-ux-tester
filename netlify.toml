@@ -1,0 +1,20 @@
+[build]
+  # ビルドコマンド
+  command = "npm run build"
+  # ビルド後の公開ディレクトリ
+  publish = "dist"
+
+# SPAのルーティング対応（必要に応じて）
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# セキュリティヘッダーの設定
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
