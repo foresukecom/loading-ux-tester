@@ -48,7 +48,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-4">
             ローディングエフェクト
           </label>
-          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div class="grid grid-cols-2 gap-3">
             <button
               v-for="effect in effects"
               :key="effect.id"
