@@ -48,7 +48,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-4">
             ローディングエフェクト
           </label>
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
             <button
               v-for="effect in effects"
               :key="effect.id"
@@ -101,6 +101,8 @@ import LoadingNone from './components/LoadingNone.vue'
 import LoadingSpinner from './components/LoadingSpinner.vue'
 import LoadingProgress from './components/LoadingProgress.vue'
 import LoadingQuotes from './components/LoadingQuotes.vue'
+import LoadingProcess from './components/LoadingProcess.vue'
+import LoadingHumor from './components/LoadingHumor.vue'
 
 export default {
   name: 'App',
@@ -108,7 +110,9 @@ export default {
     LoadingNone,
     LoadingSpinner,
     LoadingProgress,
-    LoadingQuotes
+    LoadingQuotes,
+    LoadingProcess,
+    LoadingHumor
   },
   setup() {
     const loadingTime = ref(2.0)
@@ -122,7 +126,9 @@ export default {
       { id: 'none', name: '何も表示しない' },
       { id: 'spinner', name: 'スピナー' },
       { id: 'progress', name: 'プログレスバー' },
-      { id: 'quotes', name: '偉人の名言' }
+      { id: 'quotes', name: '偉人の名言' },
+      { id: 'process', name: '内部処理表示' },
+      { id: 'humor', name: 'ユーモア・ジョーク' }
     ]
 
     const buttonClasses = computed(() => {
@@ -154,7 +160,9 @@ export default {
         'none': 'LoadingNone',
         'spinner': 'LoadingSpinner',
         'progress': 'LoadingProgress',
-        'quotes': 'LoadingQuotes'
+        'quotes': 'LoadingQuotes',
+        'process': 'LoadingProcess',
+        'humor': 'LoadingHumor'
       }
       return componentMap[selectedEffect.value] || 'LoadingNone'
     })
